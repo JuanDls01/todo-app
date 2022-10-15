@@ -4,7 +4,7 @@ type TodoAddProps = {
   onAdd?: (value: string) => void;
 };
 
-export const TodoAdd: React.FC<TodoAddProps> = ({ onAdd }) => {
+const TodoAdd: React.FC<TodoAddProps> = ({ onAdd }) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleOnAddItem = () => {
@@ -27,3 +27,5 @@ export const TodoAdd: React.FC<TodoAddProps> = ({ onAdd }) => {
     </div>
   );
 };
+
+export default TodoAdd;

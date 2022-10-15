@@ -1,15 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import { TodoAdd } from "./components/TodoAdd";
-import TodoItem from "./components/TodoItem";
-
-type todoProps = {
-  text: string;
-  done: boolean;
-};
+import { TodoAdd, TodoItem } from "./components";
+import { TodoProps } from "./models";
 
 function App() {
-  const [todoList, setTodoList] = useState<todoProps[]>([]);
+  const [todoList, setTodoList] = useState<TodoProps[]>([]);
 
   const handleOnAddItem = (text: string) => {
     setTodoList((prev) => {

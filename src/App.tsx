@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { TodoAdd } from "./components/TodoAdd";
+import TodoItem from "./components/TodoItem";
 
 type todoProps = {
   text: string;
@@ -8,10 +9,13 @@ type todoProps = {
 };
 
 function App() {
-  const [todoList, setTodoList] = useState<todoProps>();
+  const [todoList, setTodoList] = useState<todoProps[]>([]);
 
-  const handleOnAddItem = () => {
-    console.log("addItem");
+  const handleOnAddItem = (text: string) => {
+    setTodoList((prev) => {
+      return [...prev, { text: text, done: false }];
+    });
+    console.log(todoList);
   };
   return (
     <div className='App'>
@@ -20,6 +24,7 @@ function App() {
       <div>
         <div>
           <h2>To do:</h2>
+          <TodoItem />
         </div>
         <div>
           <h2>Done</h2>

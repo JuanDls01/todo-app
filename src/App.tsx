@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
+import { useState } from "react";
 import "./App.css";
+import { TodoAdd } from "./components/TodoAdd";
 
 type todoProps = {
   text: string;
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className='App'>
       <h1>Todos List</h1>
-      {/* Componente Add todo */}
+      <TodoAdd onAdd={handleOnAddItem} />
       <div>
         <div>
           <h2>To do:</h2>

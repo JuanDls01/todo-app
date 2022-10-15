@@ -5,6 +5,7 @@ import { TodoProps } from "./models";
 
 function App() {
   const [todoList, setTodoList] = useState<TodoProps[]>([]);
+  console.log("cargue");
 
   const handleOnAddItem = (text: string) => {
     setTodoList((prev) => {
@@ -12,6 +13,13 @@ function App() {
     });
     console.log(todoList);
   };
+
+  const handleOnChangeDone = (index: number, value: boolean) => {
+    console.log(todoList);
+    todoList[index].done = value;
+    setTodoList([...todoList]);
+  };
+
   return (
     <div className='App'>
       <h1>Todos List</h1>
@@ -19,10 +27,38 @@ function App() {
       <div>
         <div>
           <h2>To do:</h2>
-          <TodoItem />
+          <div>
+            {todoList.map(
+              (todo, index) =>
+                !todo.done && (
+                  <TodoItem
+                    key={index}
+                    id={index}
+                    text={todo.text}
+                    done={todo.done}
+                    onChange={handleOnChangeDone}
+                  />
+                )
+            )}
+          </div>
         </div>
         <div>
           <h2>Done</h2>
+          <div>
+            {todoList.map((todo, index) => {
+              return (
+                todo.done && (
+                  <TodoItem
+                    key={index}
+                    id={index}
+                    text={todo.text}
+                    done={todo.done}
+                    onChange={handleOnChangeDone}
+                  />
+                )
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

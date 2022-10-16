@@ -18,7 +18,7 @@ function App() {
   };
 
   return (
-    <div className='w-screen flex flex-col justify-between items-center'>
+    <div className=' flex flex-col justify-between items-center'>
       <div className='h-screen w-96 flex flex-col m-4'>
         <h1 className='text-6xl font-bold text-white mb-10'>Todo App</h1>
         <TodoAdd onAdd={handleOnAddItem} />
@@ -65,7 +65,7 @@ function App() {
         </div>
       </div>
 
-      <footer className='flex w-screen text-white py-5 border-t items-center justify-center'>
+      <footer className='flex text-white py-5 border-t items-center justify-center'>
         <p>
           Created by{" "}
           <a

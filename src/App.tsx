@@ -21,10 +21,12 @@ function App() {
     <div className='h-screen w-96 flex flex-col m-4'>
       <h1 className='text-6xl font-bold text-white mb-10'>Todo App</h1>
       <TodoAdd onAdd={handleOnAddItem} />
-      <div className='text-2xl font-bold text-white w-80'>
+      <div>
         <div>
-          <h2>To do:</h2>
-          <div className='border-2 border-gray-600 bg-gray-700 rounded'>
+          <h2 className='text-2xl font-bold text-white border-b-2 mb-2'>
+            To do
+          </h2>
+          <div>
             {todoList.map(
               (todo, index) =>
                 !todo.done && (
@@ -40,7 +42,9 @@ function App() {
           </div>
         </div>
         <div>
-          <h2>Done:</h2>
+          <h2 className='text-2xl font-bold text-white border-b-2 mb-2'>
+            Done
+          </h2>
           <div>
             {todoList.map((todo, index) => {
               return (
